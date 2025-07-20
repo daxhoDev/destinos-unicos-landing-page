@@ -16,7 +16,7 @@ body {
 /* ==========================================================================
    NAVBAR
    ========================================================================== */
-.main-navbar {
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ body {
   padding: 0.5rem 0;
 }
 
-.main-navbar__links {
+.nav-links {
   display: none;
   justify-content: center;
   gap: 2rem;
@@ -35,7 +35,7 @@ body {
   padding: 0;
 }
 
-.main-navbar__links .link {
+.nav-links .link {
   color: #3a8dde;
   font-weight: bold;
   text-decoration: none;
@@ -43,11 +43,11 @@ body {
   transition: color 0.2s;
 }
 
-.main-navbar__links .link:hover {
+.nav-links .link:hover {
   color: #ff6fa3;
 }
 
-.main-navbar__burger-button {
+.burger-button {
   display: block;
   background: none;
   border: none;
@@ -57,8 +57,8 @@ body {
   cursor: pointer;
 }
 
-.main-navbar__burger-button:hover,
-.main-navbar__burger-button:active {
+.burger-button:hover,
+.burger-button:active {
   color: #ff6fa3;
 }
 
@@ -360,7 +360,7 @@ body {
   display: flex;
 }
 
-.navbar-sidebar {
+.sidebar {
   width: 240px;
   max-width: 80vw;
   background: #fff;
@@ -374,7 +374,7 @@ body {
   animation: sidebarIn 0.2s;
 }
 
-.navbar-sidebar ul {
+.sidebar ul {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -383,7 +383,7 @@ body {
   margin: 0;
 }
 
-.navbar-sidebar a {
+.sidebar a {
   color: #3a8dde;
   font-weight: bold;
   text-decoration: none;
@@ -391,7 +391,7 @@ body {
   transition: color 0.2s;
 }
 
-.navbar-sidebar a:hover {
+.sidebar a:hover {
   color: #ff6fa3;
 }
 
@@ -413,10 +413,6 @@ body {
    MEDIA QUERIES - TABLET
    ========================================================================== */
 @media (min-width: 600px) {
-  .navbar > ul {
-    display: none;
-  }
-
   .gift-modal {
     flex-direction: row;
     width: 540px;
@@ -435,6 +431,14 @@ body {
    MEDIA QUERIES - DESKTOP
    ========================================================================== */
 @media (min-width: 768px) {
+  .burger-button {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
   .hero {
     flex-direction: row;
     justify-content: center;

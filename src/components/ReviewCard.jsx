@@ -6,4 +6,4 @@ export default function ReviewCard({ picture, text, client }) {
       <div className="review-client">- {client}</div>
     </div>
   );
-} 
+}

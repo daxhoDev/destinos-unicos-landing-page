@@ -16,15 +16,15 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="main-navbar">
+    <nav className="navbar">
       <button
-        className="main-navbar__burger-button"
+        className="burger-button"
         aria-label="Abrir menú"
         onClick={() => setIsSidebarOpen(true)}
       >
         &#9776;
       </button>
-      <ul className="main-navbar__links">
+      <ul className="nav-links">
         {navLinks.map((link) => (
           <li key={link.href}>
             <a className="link" href={link.href}>
@@ -36,7 +36,7 @@ export default function Navbar() {
       {isSidebarOpen && (
         <div className="sidebar-backdrop" onClick={handleCloseSidebar}>
           <nav
-            className="navbar-sidebar"
+            className="sidebar"
             onClick={(e) => e.stopPropagation()}
             aria-label="Menú lateral"
           >
