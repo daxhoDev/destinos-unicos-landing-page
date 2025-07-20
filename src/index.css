@@ -33,7 +33,7 @@ body {
 /* ==========================================================================
    NAVBAR
    ========================================================================== */
-.navbar {
+.main-navbar {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -42,7 +42,7 @@ body {
   padding: 0.5rem 0;
 }
 
-.navbar ul {
+.main-navbar__links {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -51,7 +51,7 @@ body {
   padding: 0;
 }
 
-.navbar a {
+.main-navbar__links .link {
   color: #3a8dde;
   font-weight: bold;
   text-decoration: none;
@@ -59,11 +59,11 @@ body {
   transition: color 0.2s;
 }
 
-.navbar a:hover {
+.main-navbar__links .link:hover {
   color: #ff6fa3;
 }
 
-.navbar-hamburger {
+.main-navbar__burger-button {
   display: none;
   background: none;
   border: none;
@@ -358,7 +358,7 @@ body {
 }
 
 /* Sidebar móvil */
-.navbar-sidebar-backdrop {
+.sidebar-backdrop {
   position: fixed;
   top: 0;
   left: 0;
