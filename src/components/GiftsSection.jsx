@@ -26,7 +26,7 @@ export default function GiftsSection() {
 
   return (
     <section className="gifts-section" id="gifts">
-      <h2>Nuestros Regalos Destacados</h2>
+      <h2 className="section-title">Nuestros Regalos Destacados</h2>
       <div className="gifts-grid">
         {visibleGifts.map((gift) => (
           <GiftCard

@@ -27,7 +27,7 @@ const reviews = [
 export default function ReviewsSection() {
   return (
     <section className="reviews-section">
-      <h2>Lo que dicen nuestros clientes</h2>
+      <h2 className="section-title">Lo que dicen nuestros clientes</h2>
       <div className="reviews-grid">
         {reviews.map((review) => (
           <ReviewCard
