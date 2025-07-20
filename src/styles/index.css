@@ -26,7 +26,7 @@ body {
   padding: 0;
 }
 
-.landing-root {
+.app {
   min-height: 100vh;
 }
 
@@ -84,6 +84,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 2rem;
   text-align: center;
   background: linear-gradient(120deg, rgba(58, 141, 222, 0.9) 60%, rgba(255, 111, 163, 0.9) 100%), url('@/img/gifts-bg.png');
   background-size: cover;
@@ -92,12 +93,12 @@ body {
   color: #fff;
 }
 
-.hero-content {
+/* .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-}
+} */
 
 .hero-title {
   font-size: 3rem;
@@ -158,6 +159,7 @@ body {
   align-items: center;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1.5px solid #e0e7ef;
+  cursor: pointer;
 }
 
 .gift-card:hover {
@@ -185,7 +187,7 @@ body {
   color: #3a8dde;
 }
 
-.see-more-btn {
+button {
   background: linear-gradient(90deg, #3a8dde 60%, #ff6fa3 100%);
   color: #fff;
   border: none;
@@ -195,11 +197,11 @@ body {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 2px 8px 0 rgba(58, 141, 222, 0.10);
-  transition: background 0.2s, transform 0.2s;
+  transition: transform 0.2s;
+  margin-top: 1.5rem;
 }
 
-.see-more-btn:hover {
-  background: linear-gradient(90deg, #ff6fa3 0%, #3a8dde 100%);
+button:hover {
   transform: translateY(-2px) scale(1.04);
 }
 
@@ -416,7 +418,7 @@ body {
    MEDIA QUERIES - DESKTOP
    ========================================================================== */
 @media (min-width: 800px) {
-  .hero-content {
+  .hero {
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -424,9 +426,9 @@ body {
     text-align: left;
   }
   
-  .hero-text {
+  /* .hero-text {
     flex: 1;
-  }
+  } */
   
   .hero-img-placeholder {
     margin-top: 0;
