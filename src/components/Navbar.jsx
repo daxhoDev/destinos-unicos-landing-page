@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Button from "@/components/Button";
 
 const navLinks = [
   { href: "#hero", label: "Inicio" },
@@ -10,32 +12,47 @@ const navLinks = [
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
 
   function handleCloseSidebar() {
     setIsSidebarOpen(false);
   }
 
   return (
-    <nav className="fixed top-0 left-0 w-screen z-10 bg-white shadow-md py-2 flex items-center">
+    <nav className="fixed top-0 left-0 w-screen z-10 bg-white shadow-md py-2 px-8 flex items-center justify-between">
       <button
-        className="block md:hidden bg-none border-none text-3xl text-blue-500 ml-4 cursor-pointer hover:text-pink-400 focus:outline-none"
+        className="block md:hidden bg-none border-none text-3xl text-blue-500 cursor-pointer hover:text-pink-400 focus:outline-none"
         aria-label="Abrir menú"
         onClick={() => setIsSidebarOpen(true)}
       >
         &#9776;
       </button>
-      <ul className="hidden md:flex flex-1 justify-center gap-8 list-none p-0 m-0">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <a
-              className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
-              href={link.href}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+      <ul className="hidden md:flex justify-center gap-8 list-none p-0 m-0">
+        {location.pathname === "/" ? (
+          navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        ) : (
+          <Link
+            to="/"
+            className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
+          >
+            Volver a la landing
+          </Link>
+        )}
       </ul>
+      {location.pathname === "/" && (
+        <Link to="/catalog">
+          <Button>Ver catálogo</Button>
+        </Link>
+      )}
       {isSidebarOpen && (
         <div
           className="fixed top-0 left-0 w-screen h-screen bg-black/40 z-20 flex"
@@ -47,17 +64,26 @@ export default function Navbar() {
             aria-label="Menú lateral"
           >
             <ul className="flex flex-col gap-6 list-none p-0 m-0">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
-                    href={link.href}
-                    onClick={handleCloseSidebar}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {location.pathname === "/" ? (
+                navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
+                      href={link.href}
+                      onClick={handleCloseSidebar}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <Link
+                  to="/"
+                  className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
+                >
+                  Volver a la landing
+                </Link>
+              )}
             </ul>
           </nav>
         </div>

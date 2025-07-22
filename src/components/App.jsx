@@ -1,22 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import Catalog from "@/pages/Catalog";
+import Landing from "@/pages/Landing";
 import Navbar from "@/components/Navbar";
-import Main from "@/components/Main";
 import Footer from "@/components/Footer";
-
-import GiftsSection from "@/components/GiftsSection";
-import AboutSection from "@/components/AboutSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import HeroSection from "@/components/HeroSection";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <Main>
-        <HeroSection />
-        <GiftsSection />
-        <AboutSection />
-        <ReviewsSection />
-      </Main>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/catalog" element={<Catalog />} />
+      </Routes>
       <Footer />
     </div>
   );

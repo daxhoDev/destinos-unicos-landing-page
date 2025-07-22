@@ -2,6 +2,7 @@ import { useState } from "react";
 import GiftCard from "@/components/GiftCard";
 import GiftModal from "@/components/GiftModal";
 import Button from "@/components/Button";
+import { Link } from "react-router-dom";
 
 const gifts = [
   { id: 1, name: "Regalo 1", description: "Descripción del Regalo 1" },
@@ -15,14 +16,9 @@ const gifts = [
 ];
 
 export default function GiftsSection() {
-  const [isShowingAllGifts, setIsShowingAllGifts] = useState(false);
   const [selectedGift, setSelectedGift] = useState(null);
-
   const VISIBLE_COUNT = 3;
-  const visibleGifts = isShowingAllGifts
-    ? gifts
-    : gifts.slice(0, VISIBLE_COUNT);
-  const hasMoreGifts = gifts.length > VISIBLE_COUNT;
+  const visibleGifts = gifts.slice(0, VISIBLE_COUNT);
 
   return (
     <section
@@ -32,7 +28,7 @@ export default function GiftsSection() {
       <h2 className="text-blue-500 mb-8 text-2xl font-bold">
         Nuestros Regalos Destacados
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl mb-8">
         {visibleGifts.map((gift) => (
           <GiftCard
             key={gift.id}
@@ -41,11 +37,9 @@ export default function GiftsSection() {
           />
         ))}
       </div>
-      {hasMoreGifts && (
-        <Button onClick={() => setIsShowingAllGifts(!isShowingAllGifts)}>
-          Ver {isShowingAllGifts ? "menos" : "más"}
-        </Button>
-      )}
+      <Link to="/catalog">
+        <Button>Ver catálogo completo</Button>
+      </Link>
       {selectedGift && (
         <GiftModal gift={selectedGift} onClose={() => setSelectedGift(null)} />
       )}
