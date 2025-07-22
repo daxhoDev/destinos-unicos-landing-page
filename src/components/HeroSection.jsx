@@ -1,11 +1,12 @@
+import background from "@/img/gifts-bg.png";
+
 export default function HeroSection() {
   return (
     <section
       className="h-dvh px-4 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 text-center md:text-left bg-gradient-to-tl from-pink-400/90 via-blue-500/90 to-blue-400/90 bg-cover bg-center bg-no-repeat text-white"
       id="hero"
       style={{
-        backgroundImage:
-          "linear-gradient(to top left, rgba(255, 111, 163, 0.9), rgba(58, 141, 222, 0.9) 60%), url(/src/img/gifts-bg.png)",
+        backgroundImage: `linear-gradient(to top left, rgba(255, 111, 163, 0.9), rgba(58, 141, 222, 0.9) 60%), url(${background})`,
       }}
     >
       <div>
