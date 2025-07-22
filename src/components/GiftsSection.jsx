@@ -25,9 +25,14 @@ export default function GiftsSection() {
   const hasMoreGifts = gifts.length > VISIBLE_COUNT;
 
   return (
-    <section className="gifts-section" id="gifts">
-      <h2 className="section-title">Nuestros Regalos Destacados</h2>
-      <div className="gifts-grid">
+    <section
+      className="py-8 px-4 text-center bg-blue-50 flex flex-col items-center"
+      id="gifts"
+    >
+      <h2 className="text-blue-500 mb-8 text-2xl font-bold">
+        Nuestros Regalos Destacados
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl">
         {visibleGifts.map((gift) => (
           <GiftCard
             key={gift.id}

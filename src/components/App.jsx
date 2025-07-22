@@ -9,7 +9,7 @@ import HeroSection from "@/components/HeroSection";
 
 export default function App() {
   return (
-    <div className="app">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <Main>
         <HeroSection />
