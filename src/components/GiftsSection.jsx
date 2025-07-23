@@ -32,7 +32,7 @@ export default function GiftsSection() {
         {visibleGifts.map((gift) => (
           <GiftCard
             key={gift.id}
-            name={gift.name}
+            gift={gift}
             onClick={() => setSelectedGift(gift)}
           />
         ))}
