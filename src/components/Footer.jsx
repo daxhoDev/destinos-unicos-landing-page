@@ -11,7 +11,8 @@ export default function Footer() {
         <strong>Redes sociales:</strong> [Enlaces a redes sociales]
       </div>
       <div className="text-lg md:text-left">
-        <strong>Dirección:</strong> [Dirección]
+        <strong>Dirección:</strong> Calle 250 entre 25 y 27 Número 25A08
+        Interior, San Agustín, La Lisa, La Habana, Cuba
       </div>
       <div className="text-lg md:text-left">
         <strong>Correo electrónico:</strong> [Correo electrónico]
