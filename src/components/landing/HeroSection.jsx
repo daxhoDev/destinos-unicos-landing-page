@@ -10,10 +10,10 @@ export default function HeroSection() {
       }}
     >
       <div>
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-wider text-shadow-lg">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-wider text-shadow-md">
           Destinos Únicos
         </h1>
-        <p className="text-lg md:text-2xl text-shadow-lg">
+        <p className="text-lg md:text-2xl text-shadow-md">
           ¡Regalos y experiencias que dejan huella en cada ocasión!
         </p>
       </div>
