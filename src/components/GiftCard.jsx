@@ -9,25 +9,27 @@ export default function Gift({ gift, onClick }) {
     >
       <div className="w-40 h-40 rounded-full mb-4 overflow-hidden bg-gray-100 flex items-center justify-center relative">
         {loading && (
-          <svg
-            className="animate-spin h-10 w-10 text-blue-400 absolute"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-              fill="none"
-            />
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-            />
-          </svg>
+          <div className="flex items-center justify-center w-full h-full absolute top-0 left-0">
+            <svg
+              className="animate-spin h-10 w-10 text-blue-400"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+                fill="none"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              />
+            </svg>
+          </div>
         )}
         <img
           src={gift.image}

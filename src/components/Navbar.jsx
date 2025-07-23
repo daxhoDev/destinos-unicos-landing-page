@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "@/components/Button";
 
@@ -12,16 +12,34 @@ const navLinks = [
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    function handleScroll() {
+      setIsTransparent(window.scrollY < 1 && location.pathname === "/");
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
 
   function handleCloseSidebar() {
     setIsSidebarOpen(false);
   }
 
   return (
-    <nav className="fixed top-0 left-0 w-screen z-10 bg-white shadow-md py-2 px-8 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 w-screen z-10 transition-colors duration-300 py-2 px-8 flex items-center justify-between ${
+        isTransparent ? "bg-transparent" : "bg-white shadow-md"
+      }`}
+    >
       <button
-        className="block md:hidden bg-none border-none text-3xl text-blue-500 cursor-pointer hover:text-pink-400 focus:outline-none"
+        className={`block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none ${
+          isTransparent && location.pathname === "/"
+            ? "text-white hover:text-pink-200 active:text-pink-200"
+            : "text-blue-500 hover:text-pink-400 active:text-pink-400"
+        }`}
         aria-label="Abrir menú"
         onClick={() => setIsSidebarOpen(true)}
       >
@@ -32,7 +50,11 @@ export default function Navbar() {
           navLinks.map((link) => (
             <li key={link.href}>
               <a
-                className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
+                className={`font-bold no-underline text-lg transition-colors duration-200 ${
+                  isTransparent
+                    ? "text-white hover:text-pink-200 active:text-pink-200"
+                    : "text-blue-500 hover:text-pink-400 active:text-pink-400"
+                }`}
                 href={link.href}
               >
                 {link.label}
@@ -50,7 +72,9 @@ export default function Navbar() {
       </ul>
       {location.pathname === "/" && (
         <Link to="/catalog">
-          <Button>Ver catálogo</Button>
+          <Button variant={isTransparent ? "light" : undefined}>
+            Ver catálogo
+          </Button>
         </Link>
       )}
       {isSidebarOpen && (
