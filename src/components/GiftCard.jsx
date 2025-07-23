@@ -8,7 +8,7 @@ export default function Gift({ gift, onClick }) {
         <img
           src={gift.image}
           alt={gift.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover flex items-center justify-center"
         />
       </div>
       <div className="text-blue-500 text-lg font-semibold">{gift.name}</div>

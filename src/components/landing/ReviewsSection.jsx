@@ -1,4 +1,4 @@
-import ReviewCard from "@/components/ReviewCard";
+import ReviewCard from "@/components/landing/ReviewCard";
 import clientMaria from "@/img/clients/maria-del-carmen.jpg";
 import clientSabrina from "@/img/clients/sabrina.jpg";
 import clientYudanis from "@/img/clients/yudanis.jpg";
