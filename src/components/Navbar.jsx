@@ -49,9 +49,17 @@ export default function Navbar() {
       ) : (
         <Link
           to="/"
-          className="block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none text-blue-500 hover:text-pink-400 active:text-pink-400"
+          className="block md:hidden cursor-pointer focus:outline-none text-blue-500 hover:text-pink-400 active:text-pink-400"
         >
-          &#8592;
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 6L9 12L15 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </Link>
       )}
       <ul className="hidden md:flex justify-center gap-8 list-none p-0 m-0">
