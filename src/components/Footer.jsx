@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
     <footer
-      className="bg-blue-950 text-white py-8 px-4 lg:px-8 text-center flex flex-col gap-6 lg:flex-row md:justify-between md:gap-8 mt-auto"
+      className="md:text-lg md:text-left bg-blue-950 text-white py-8 px-4 md:px-8 text-center flex flex-col gap-6 lg:flex-row md:justify-between md:gap-8 mt-auto"
       id="footer"
     >
-      <div className="text-lg md:text-left">
+      <div>
         <strong>Teléfono:</strong>{" "}
         <a
           href="tel:+53 53540976"
@@ -13,7 +13,7 @@ export default function Footer() {
           +5353540976
         </a>
       </div>
-      <div className="text-lg md:text-left">
+      <div>
         <strong>Redes sociales:</strong>
         <ul className="flex flex-col gap-2">
           <li>
@@ -34,11 +34,11 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="text-lg md:text-left">
+      <div>
         <strong>Dirección:</strong> Calle 250 entre 25 y 27 Número 25A08
         Interior, San Agustín, La Lisa, La Habana, Cuba
       </div>
-      <div className="text-lg md:text-left">
+      <div>
         <strong>Correo electrónico:</strong>{" "}
         <a
           href="mailto:yrd261180@gmail.com"

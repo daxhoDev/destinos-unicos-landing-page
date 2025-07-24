@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function ReviewCard({ picture, text, client }) {
   const [loading, setLoading] = useState(true);
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center border-pink-100 md:justify-between w-full min-h-[320px] max-w-xl mx-auto">
+    <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center border-pink-100 md:justify-between w-full h-full max-w-xl">
       <div className="w-24 h-24 md:w-40 md:h-40 rounded-full mb-2 overflow-hidden bg-gray-100 flex items-center justify-center relative">
         {loading && (
           <div className="flex items-center justify-center w-full h-full absolute top-0 left-0">
@@ -37,7 +37,7 @@ export default function ReviewCard({ picture, text, client }) {
           onLoad={() => setLoading(false)}
         />
       </div>
-      <div className="text-blue-500 text-lg italic mb-2 flex-1 flex items-center justify-center text-center break-words">
+      <div className="text-blue-500 md:text-lg italic mb-2 flex-1 flex items-center justify-center text-center break-words">
         “{text}”
       </div>
       <div className="text-pink-400 font-bold mt-2">- {client}</div>

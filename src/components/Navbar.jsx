@@ -104,6 +104,7 @@ export default function Navbar() {
                 <Link
                   to="/"
                   className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
+                  onClick={() => setIsSidebarOpen(false)}
                 >
                   Volver a la landing
                 </Link>

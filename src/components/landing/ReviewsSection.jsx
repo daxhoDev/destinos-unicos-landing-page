@@ -43,17 +43,12 @@ export default function ReviewsSection() {
       <div className="w-full max-w-2xl mx-auto">
         <div ref={sliderRef} className="keen-slider">
           {reviews.map((review) => (
-            <div
-              className="keen-slider__slide flex justify-center items-center w-full"
-              key={review.id}
-            >
-              <div className="w-full flex justify-center">
-                <ReviewCard
-                  picture={review.picture}
-                  text={review.text}
-                  client={review.client}
-                />
-              </div>
+            <div className="keen-slider__slide w-full flex justify-center p-4">
+              <ReviewCard
+                picture={review.picture}
+                text={review.text}
+                client={review.client}
+              />
             </div>
           ))}
         </div>
