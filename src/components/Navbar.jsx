@@ -34,17 +34,26 @@ export default function Navbar() {
         isTransparent ? "bg-transparent" : "bg-white shadow-md"
       }`}
     >
-      <button
-        className={`block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none ${
-          isTransparent && location.pathname === "/"
-            ? "text-white hover:text-pink-200 active:text-pink-200"
-            : "text-blue-500 hover:text-pink-400 active:text-pink-400"
-        }`}
-        aria-label="Abrir menú"
-        onClick={() => setIsSidebarOpen(true)}
-      >
-        &#9776;
-      </button>
+      {location.pathname === "/" ? (
+        <button
+          className={`block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none ${
+            isTransparent && location.pathname === "/"
+              ? "text-white hover:text-pink-200 active:text-pink-200"
+              : "text-blue-500 hover:text-pink-400 active:text-pink-400"
+          }`}
+          aria-label="Abrir menú"
+          onClick={() => setIsSidebarOpen(true)}
+        >
+          &#9776;
+        </button>
+      ) : (
+        <Link
+          to="/"
+          className="block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none text-blue-500 hover:text-pink-400 active:text-pink-400"
+        >
+          &#8592;
+        </Link>
+      )}
       <ul className="hidden md:flex justify-center gap-8 list-none p-0 m-0">
         {location.pathname === "/" ? (
           navLinks.map((link) => (
@@ -66,7 +75,7 @@ export default function Navbar() {
             to="/"
             className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
           >
-            Volver a la landing
+            Inicio
           </Link>
         )}
       </ul>
@@ -88,27 +97,17 @@ export default function Navbar() {
             aria-label="Menú lateral"
           >
             <ul className="flex flex-col gap-6 list-none p-0 m-0">
-              {location.pathname === "/" ? (
-                navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
-                      href={link.href}
-                      onClick={handleCloseSidebar}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))
-              ) : (
-                <Link
-                  to="/"
-                  className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
-                  onClick={() => setIsSidebarOpen(false)}
-                >
-                  Volver a la landing
-                </Link>
-              )}
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
+                    href={link.href}
+                    onClick={handleCloseSidebar}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
