@@ -26,6 +26,7 @@ import AboutSection from "@/components/landing/AboutSection";
 import ReviewsSection from "@/components/landing/ReviewsSection";
 import HeroSection from "@/components/landing/HeroSection";
 import GiftModal from "@/components/GiftModal";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const gifts = [
   {
@@ -180,6 +181,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"
