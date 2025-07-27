@@ -1,3 +1,3 @@
 export default {
-  safelist: ['text-blue-400', 'text-pink-400']
-}
+    safelist: ['text-blue-400', 'text-pink-400']
+  }

@@ -1,14 +1,64 @@
-# React + Vite
+# Destinos Únicos - Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page para una empresa de regalos especiales construida con React y Vite.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Página principal con hero section y secciones de regalos
+- Catálogo filtrable por categorías (Románticos, Fechas Especiales, Cumpleaños)
+- Modal para ver detalles de cada regalo
+- Diseño responsivo con Tailwind CSS
+- Navegación entre páginas con React Router
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# destinos-unicos-landing-page
-# destinos-unicos-landing-page
+- React 19.1.0
+- Vite 7.0.4
+- Tailwind CSS 4.1.11
+- React Router DOM 6.30.1
+- Keen Slider 6.8.6
+
+## Instalación
+
+```bash
+# Clonar repositorio
+git clone https://github.com/daxhoDev/destinos-unicos-landing-page.git
+cd destinos-unicos-landing-page
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
+npm run dev
+```
+
+## Scripts
+
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Build para producción
+- `npm run preview` - Vista previa del build
+- `npm run lint` - Linting del código
+
+## Estructura
+
+```
+src/
+├── components/     # Componentes reutilizables
+├── pages/         # Páginas principales
+├── assets/        # Imágenes y recursos
+└── App.jsx        # Componente principal
+```
+
+## Despliegue
+
+El proyecto incluye configuración para Vercel (`vercel.json`). Para desplegar:
+
+1. Conectar repositorio a Vercel
+2. Vercel detectará automáticamente la configuración de Vite
+
+## Contenido
+
+- 16 regalos con imágenes, descripciones y precios
+- 3 categorías: Románticos, Fechas Especiales, Cumpleaños
+- Sección de reseñas de clientes
+- Información sobre la empresa
