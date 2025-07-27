@@ -55,9 +55,9 @@ export default function Navbar() {
             <path
               d="M15 6L9 12L15 18"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </Link>
