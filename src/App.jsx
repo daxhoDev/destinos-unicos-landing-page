@@ -1,19 +1,19 @@
-import gift1 from "@/img/gifts/gift1.jpg";
-import gift2 from "@/img/gifts/gift2.jpg";
-import gift3 from "@/img/gifts/gift3.jpg";
-import gift4 from "@/img/gifts/gift4.jpg";
-import gift5 from "@/img/gifts/gift5.jpg";
-import gift6 from "@/img/gifts/gift6.jpg";
-import gift7 from "@/img/gifts/gift7.jpg";
-import gift8 from "@/img/gifts/gift8.jpg";
-import gift9 from "@/img/gifts/gift9.jpg";
-import gift10 from "@/img/gifts/gift10.jpg";
-import gift11 from "@/img/gifts/gift11.jpg";
-import gift12 from "@/img/gifts/gift12.jpg";
-import gift13 from "@/img/gifts/gift13.jpg";
-import gift14 from "@/img/gifts/gift14.jpg";
-import gift15 from "@/img/gifts/gift15.jpg";
-import gift16 from "@/img/gifts/gift16.jpg";
+import gift1 from "@/assets/gifts/gift1.jpg";
+import gift2 from "@/assets/gifts/gift2.jpg";
+import gift3 from "@/assets/gifts/gift3.jpg";
+import gift4 from "@/assets/gifts/gift4.jpg";
+import gift5 from "@/assets/gifts/gift5.jpg";
+import gift6 from "@/assets/gifts/gift6.jpg";
+import gift7 from "@/assets/gifts/gift7.jpg";
+import gift8 from "@/assets/gifts/gift8.jpg";
+import gift9 from "@/assets/gifts/gift9.jpg";
+import gift10 from "@/assets/gifts/gift10.jpg";
+import gift11 from "@/assets/gifts/gift11.jpg";
+import gift12 from "@/assets/gifts/gift12.jpg";
+import gift13 from "@/assets/gifts/gift13.jpg";
+import gift14 from "@/assets/gifts/gift14.jpg";
+import gift15 from "@/assets/gifts/gift15.jpg";
+import gift16 from "@/assets/gifts/gift16.jpg";
 
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -21,10 +21,11 @@ import Catalog from "@/pages/Catalog";
 import Landing from "@/pages/Landing";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import GiftsSection from "@/components/landing/GiftsSection";
-import AboutSection from "@/components/landing/AboutSection";
-import ReviewsSection from "@/components/landing/ReviewsSection";
-import HeroSection from "@/components/landing/HeroSection";
+import GiftsSection from "@/components/GiftsSection";
+import GiftCard from "@/components/GiftCard";
+import AboutSection from "@/components/AboutSection";
+import ReviewsSection from "@/components/ReviewsSection";
+import HeroSection from "@/components/HeroSection";
 import GiftModal from "@/components/GiftModal";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -178,6 +179,14 @@ const gifts = [
 export default function App() {
   const [selectedGift, setSelectedGift] = useState(null);
 
+  function handleSelectGift(gift) {
+    setSelectedGift(gift);
+  }
+
+  function handleCloseModal() {
+    setSelectedGift(null);
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -188,11 +197,15 @@ export default function App() {
           element={
             <Landing>
               <HeroSection />
-              <GiftsSection
-                gifts={gifts}
-                selectedGift={selectedGift}
-                setSelectedGift={setSelectedGift}
-              />
+              <GiftsSection>
+                {gifts.slice(0, 3).map((gift) => (
+                  <GiftCard
+                    key={gift.id}
+                    gift={gift}
+                    onSelectGift={() => handleSelectGift(gift)}
+                  />
+                ))}
+              </GiftsSection>
               <AboutSection />
               <ReviewsSection />
             </Landing>
@@ -200,17 +213,11 @@ export default function App() {
         />
         <Route
           path="/catalog"
-          element={
-            <Catalog
-              gifts={gifts}
-              selectedGift={selectedGift}
-              setSelectedGift={setSelectedGift}
-            />
-          }
+          element={<Catalog gifts={gifts} onSelectGift={handleSelectGift} />}
         />
       </Routes>
       {selectedGift && (
-        <GiftModal gift={selectedGift} onClose={() => setSelectedGift(null)} />
+        <GiftModal gift={selectedGift} onCloseModal={handleCloseModal} />
       )}
       <Footer />
     </div>

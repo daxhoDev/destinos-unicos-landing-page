@@ -1,36 +1,15 @@
 import { useState } from "react";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
-export default function Gift({ gift, onClick }) {
+export default function Gift({ gift, onSelectGift }) {
   const [loading, setLoading] = useState(true);
   return (
     <div
-      className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center border border-blue-100 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:border-pink-400"
-      onClick={onClick}
+      className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4 items-center border border-blue-100 cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:border-pink-400"
+      onClick={onSelectGift}
     >
-      <div className="w-40 h-40 rounded-full mb-4 overflow-hidden bg-gray-100 flex items-center justify-center relative">
-        {loading && (
-          <div className="flex items-center justify-center w-full h-full absolute top-0 left-0">
-            <svg
-              className="animate-spin h-10 w-10 text-blue-400"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-                fill="none"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-              />
-            </svg>
-          </div>
-        )}
+      <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center relative">
+        {loading && <LoadingSpinner color="blue" />}
         <img
           src={gift.image}
           alt={gift.name}

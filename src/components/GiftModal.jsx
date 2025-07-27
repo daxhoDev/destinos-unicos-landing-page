@@ -1,10 +1,10 @@
 import Button from "@/components/Button";
 
-export default function GiftModal({ gift, onClose }) {
+export default function GiftModal({ gift, onCloseModal }) {
   return (
     <div
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center"
-      onClick={onClose}
+      onClick={onCloseModal}
     >
       <div
         className="bg-white rounded-2xl shadow-2xl flex flex-col items-center justify-center w-[95dvw] p-8 gap-6 md:flex-row md:w-[80dvw] md:max-w-4xl md:gap-8 md:p-10"
@@ -22,7 +22,7 @@ export default function GiftModal({ gift, onClose }) {
             {gift.name} - ${gift.price}
           </h3>
           <p className="text-gray-800 mb-4">{gift.description}</p>
-          <Button onClick={onClose}>Cerrar</Button>
+          <Button onClick={onCloseModal}>Cerrar</Button>
         </div>
       </div>
     </div>

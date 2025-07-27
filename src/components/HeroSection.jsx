@@ -1,4 +1,4 @@
-import background from "@/img/gifts-bg.png";
+import background from "@/assets/gifts-bg.png";
 
 export default function HeroSection() {
   return (
@@ -17,9 +17,6 @@ export default function HeroSection() {
           ¡Regalos y experiencias que dejan huella en cada ocasión!
         </p>
       </div>
-      {/* <div className="w-full max-w-xs md:max-w-sm h-52 md:h-64 bg-gradient-to-br from-pink-400 to-blue-500 rounded-3xl flex items-center justify-center font-bold text-lg md:text-xl mt-4 md:mt-0 shadow-lg">
-        <span>Yari sosteniendo un regalo (Imagen de ejemplo)</span>
-      </div> */}
     </section>
   );
 }

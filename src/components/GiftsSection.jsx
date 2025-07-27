@@ -1,9 +1,8 @@
-import GiftCard from "@/components/GiftCard";
+
 import Button from "@/components/Button";
 import { Link } from "react-router-dom";
 
-export default function GiftsSection({ gifts, setSelectedGift }) {
-  const visibleGifts = gifts.slice(0, 3);
+export default function GiftsSection({ children }) {
 
   return (
     <section
@@ -14,13 +13,7 @@ export default function GiftsSection({ gifts, setSelectedGift }) {
         Nuestros Regalos Destacados
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl mb-8">
-        {visibleGifts.map((gift) => (
-          <GiftCard
-            key={gift.id}
-            gift={gift}
-            onClick={() => setSelectedGift(gift)}
-          />
-        ))}
+        {children}
       </div>
       <Link to="/catalog">
         <Button>Ver catálogo completo</Button>

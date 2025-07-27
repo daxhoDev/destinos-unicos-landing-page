@@ -1,7 +1,7 @@
-import ReviewCard from "@/components/landing/ReviewCard";
-import clientMaria from "@/img/clients/maria-del-carmen.jpg";
-import clientSabrina from "@/img/clients/sabrina.jpg";
-import clientYudanis from "@/img/clients/yudanis.jpg";
+import ReviewCard from "@/components/ReviewCard";
+import clientMaria from "@/assets/clients/maria-del-carmen.jpg";
+import clientSabrina from "@/assets/clients/sabrina.jpg";
+import clientYudanis from "@/assets/clients/yudanis.jpg";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
@@ -36,23 +36,21 @@ export default function ReviewsSection() {
   });
 
   return (
-    <section className="py-8 px-4 pb-16 text-center bg-pink-50" id="reviews">
-      <h2 className="text-pink-400 mb-8 text-2xl font-bold">
+    <section
+      className="flex flex-col content-center gap-8 pt-8 px-4 pb-16 text-center bg-pink-50"
+      id="reviews"
+    >
+      <h2 className="text-pink-400 text-2xl font-bold">
         Lo que dicen nuestros clientes
       </h2>
       <div className="w-full max-w-2xl mx-auto">
+        {/* Slider de reseñas */}
         <div ref={sliderRef} className="keen-slider">
           {reviews.map((review) => (
-            <div className="keen-slider__slide w-full flex justify-center p-4">
-              <ReviewCard
-                picture={review.picture}
-                text={review.text}
-                client={review.client}
-              />
-            </div>
+            <ReviewCard key={review.id} review={review} />
           ))}
         </div>
-        {/* Controles de navegación */}
+        {/* Controles del slider */}
         <div className="flex justify-center gap-4">
           <button
             className="bg-pink-400 hover:bg-pink-500 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-md"

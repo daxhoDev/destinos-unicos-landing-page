@@ -1,4 +1,4 @@
-import AboutCard from "@/components/landing/AboutCard";
+import AboutCard from "@/components/AboutCard";
 
 const aboutData = [
   {

@@ -7,7 +7,7 @@ const categories = [
   { key: "cumpleaños", label: "Cumpleaños" },
 ];
 
-export default function Catalog({ gifts, setSelectedGift }) {
+export default function Catalog({ gifts, onSelectGift }) {
   const [selectedCategory, setSelectedCategory] = useState("romanticos");
 
   return (
@@ -37,7 +37,7 @@ export default function Catalog({ gifts, setSelectedGift }) {
             <GiftCard
               key={gift.id}
               gift={gift}
-              onClick={() => setSelectedGift(gift)}
+              onSelectGift={() => onSelectGift(gift)}
             />
           ))}
       </div>

@@ -15,7 +15,7 @@ export default function Footer() {
       </div>
       <div>
         <strong>Redes sociales:</strong>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-1">
           <li>
             <a
               href="https://www.instagram.com/yaritzar8011?igsh=MTBscDF0bmw3OXJw"
@@ -23,14 +23,14 @@ export default function Footer() {
             >
               Instagram
             </a>
-            <li>
-              <a
-                href="https://www.facebook.com/share/175uXcUorm/"
-                className="hover:text-pink-200 transition-colors"
-              >
-                Facebook
-              </a>
-            </li>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/share/175uXcUorm/"
+              className="hover:text-pink-200 transition-colors"
+            >
+              Facebook
+            </a>
           </li>
         </ul>
       </div>
