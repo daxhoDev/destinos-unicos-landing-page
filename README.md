@@ -2,6 +2,8 @@
 
 Landing page para una empresa de regalos especiales construida con React y Vite.
 
+![Captura de pantalla](./screenshots/destinos-unicos-screenshot.png)
+
 ## Características
 
 - Página principal con hero section y secciones de regalos
