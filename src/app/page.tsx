@@ -1,14 +1,14 @@
 "use client";
 
-import HeroSection from "@/components/HeroSection";
-import GiftsSection from "@/components/GiftsSection";
-import AboutSection from "@/components/AboutSection";
-import ReviewsSection from "@/components/ReviewsSection";
+import HeroSection from "@/components/heroSection";
+import GiftsSection from "@/components/giftsSection";
+import AboutSection from "@/components/aboutSection";
+import ReviewsSection from "@/components/reviewsSection";
 import { gifts } from "@/data";
-import GiftCard from "@/components/GiftCard";
+import GiftCard from "@/components/giftCard";
 import { useState } from "react";
 import { Gift } from "@/types";
-import GiftModal from "@/components/GiftModal";
+import GiftModal from "@/components/giftModal";
 
 export default function Home() {
   const [selectedGift, setSelectedGift] = useState<Gift | null>(null);

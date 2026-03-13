@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import Image from "next/image";
 
 export default function GiftModal({

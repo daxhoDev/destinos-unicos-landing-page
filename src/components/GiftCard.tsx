@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import LoadingSpinner from "@/components/loadingSpinner";
 import Image from "next/image";
 import type { Gift } from "@/types";
 

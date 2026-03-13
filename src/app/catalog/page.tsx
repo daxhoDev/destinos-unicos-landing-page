@@ -1,10 +1,10 @@
 "use client";
 
-import GiftCard from "@/components/GiftCard";
+import GiftCard from "@/components/giftCard";
 import { useState } from "react";
 import { gifts } from "@/data";
 import type { Gift } from "@/types";
-import GiftModal from "@/components/GiftModal";
+import GiftModal from "@/components/giftModal";
 
 const categories = [
   { key: "romanticos", label: "Románticos" },

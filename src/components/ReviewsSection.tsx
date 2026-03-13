@@ -1,6 +1,6 @@
 "use client";
 
-import ReviewCard from "@/components/ReviewCard";
+import ReviewCard from "@/components/reviewCard";
 import clientMaria from "@/assets/clients/maria-del-carmen.jpg";
 import clientSabrina from "@/assets/clients/sabrina.jpg";
 import clientYudanis from "@/assets/clients/yudanis.jpg";

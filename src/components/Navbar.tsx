@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-  import Button from "@/components/Button";
+import Button from "@/components/button";
 
 const navLinks = [
   { href: "#hero", label: "Inicio" },
