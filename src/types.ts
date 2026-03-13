@@ -1,15 +1,15 @@
 export type Gift = {
     id: number,
-    image: string,
     name: string,
     description: string,
-    category: string,
+    category: 'ROMANTIC' | 'SPECIAL_DATE' | 'BIRTHDAY',
     price: number,
+    imageUrl?: string,
 }
 
 export type Review = {
     id: number,
     text: string,
     client: string,
-    picture: string,
+    imageUrl?: string,
 }

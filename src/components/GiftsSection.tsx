@@ -1,23 +1,10 @@
-"use client";
-
 import Button from "@/components/button";
 import Link from "next/link";
-import { useState } from "react";
-import { Gift } from "@/types";
-import GiftModal from "./giftModal";
-import { gifts } from "@/data";
-import GiftCard from "./giftCard";
+import GiftsList from "./giftsList";
+import { getPopularGifts } from "@/lib/queries/home/getPopularGifts";
 
-export default function GiftsSection() {
-  const [selectedGift, setSelectedGift] = useState<Gift | null>(null);
-
-  function handleSelectGift(gift: Gift) {
-    setSelectedGift(gift);
-  }
-
-  function handleCloseModal() {
-    setSelectedGift(null);
-  }
+export default async function GiftsSection() {
+  const popularGifts = await getPopularGifts();
 
   return (
     <section
@@ -27,21 +14,12 @@ export default function GiftsSection() {
       <h2 className="text-blue-500 mb-8 text-2xl font-bold">
         Nuestros Regalos Destacados
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-3xl mb-8">
-        {gifts.slice(0, 3).map((gift) => (
-          <GiftCard
-            key={gift.id}
-            gift={gift}
-            onSelectGift={() => handleSelectGift(gift)}
-          />
-        ))}
-      </div>
-      <Link href="/catalog">
+
+      <GiftsList gifts={popularGifts} />
+
+      <Link className="mt-8" href="/catalog">
         <Button>Ver catálogo completo</Button>
       </Link>
-      {selectedGift && (
-        <GiftModal gift={selectedGift} onCloseModal={handleCloseModal} />
-      )}
     </section>
   );
 }

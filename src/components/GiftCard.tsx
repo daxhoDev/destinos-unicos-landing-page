@@ -1,15 +1,16 @@
+"use client";
+
 import { useState } from "react";
 import LoadingSpinner from "@/components/loadingSpinner";
 import Image from "next/image";
 import type { Gift } from "@/types";
 
-export default function Gift({
-  gift,
-  onSelectGift,
-}: {
+interface Props {
   gift: Gift;
   onSelectGift: () => void;
-}) {
+}
+
+export default function GiftCard({ gift, onSelectGift }: Props) {
   const [loading, setLoading] = useState(true);
   return (
     <div
@@ -21,7 +22,7 @@ export default function Gift({
         <Image
           width={160}
           height={160}
-          src={gift.image}
+          src={gift.imageUrl || "/placeholder.jpg"}
           alt={gift.name}
           className={`w-full h-full object-cover flex items-center justify-center transition-opacity duration-300 ${
             loading ? "opacity-0" : "opacity-100"

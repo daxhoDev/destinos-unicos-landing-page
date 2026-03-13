@@ -3,17 +3,13 @@
 import { useState } from "react";
 import LoadingSpinner from "@/components/loadingSpinner";
 import Image from "next/image";
+import { Review } from "@/types";
 
-export default function ReviewCard({
-  review,
-}: {
-  review: {
-    id: number;
-    text: string;
-    client: string;
-    picture: string;
-  };
-}) {
+interface Props {
+  review: Review;
+}
+
+export default function ReviewCard({ review }: Props) {
   const [loading, setLoading] = useState(true);
   return (
     <div
@@ -29,7 +25,7 @@ export default function ReviewCard({
             className={`w-full h-full object-cover flex items-center justify-center transition-opacity duration-300 ${
               loading ? "opacity-0" : "opacity-100"
             }`}
-            src={review.picture}
+            src={review.imageUrl || "/placeholder.jpg"}
             alt={`Picture of ${review.client}`}
             onLoad={() => setLoading(false)}
           />

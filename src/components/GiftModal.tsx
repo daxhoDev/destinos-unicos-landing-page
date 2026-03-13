@@ -1,18 +1,13 @@
 import Button from "@/components/button";
 import Image from "next/image";
+import { Gift } from "@/types";
 
-export default function GiftModal({
-  gift,
-  onCloseModal,
-}: {
-  gift: {
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-  };
+interface Props {
+  gift: Gift;
   onCloseModal: () => void;
-}) {
+}
+
+export default function GiftModal({ gift, onCloseModal }: Props) {
   return (
     <div
       className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center"
@@ -24,7 +19,7 @@ export default function GiftModal({
       >
         <div className="flex-1 flex items-center justify-center mb-0 md:mr-4 w-full rounded-2xl overflow-hidden h-full bg-linear-to-br from-blue-500 via-blue-400 to-pink-400 text-white font-bold text-xl">
           <Image
-            src={gift.image}
+            src={gift.imageUrl || "/placeholder.jpg"}
             alt={gift.name}
             className="w-full max-h-[50dvh] md:h-full object-cover"
             width={160}
