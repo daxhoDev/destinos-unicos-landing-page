@@ -1,4 +1,8 @@
-export default function LoadingSpinner({ color }) {
+interface Props {
+  color: "pink" | "blue";
+}
+
+export default function LoadingSpinner({ color }: Props) {
   return (
     <div className="flex items-center justify-center w-full h-full absolute top-0 left-0">
       <svg
