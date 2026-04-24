@@ -1,0 +1,31 @@
+/* [project]/node_modules/.pnpm/keen-slider@6.8.6/node_modules/keen-slider/keen-slider.min.css [app-client] (css) */
+.keen-slider:not([data-keen-slider-disabled]) {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+  align-content: flex-start;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.keen-slider:not([data-keen-slider-disabled])[data-keen-slider-reverse] {
+  flex-direction: row-reverse;
+}
+
+.keen-slider:not([data-keen-slider-disabled])[data-keen-slider-v] {
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=6515c_keen-slider_keen-slider_min_5b52922a.css.map*/
