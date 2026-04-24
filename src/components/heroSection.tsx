@@ -72,9 +72,9 @@ export default function HeroSection() {
           <span className="font-bold  ">huella en cada ocasión</span>
         </p>
         <div className="animate-fade-in-up-delay-3">
-          <Link href="#gifts">
+          <a href="#gifts">
             <Button variant="light">Descubre Nuestros Regalos ✨</Button>
-          </Link>
+          </a>
         </div>
       </div>
 
