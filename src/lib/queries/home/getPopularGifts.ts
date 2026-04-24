@@ -10,7 +10,7 @@ export const getPopularGifts = async () => {
     .limit(3)
     .order("created_at", { ascending: false });
   if (error) {
-    console.error("Error fetching gifts:", error);
+    console.error("Error fetching gifts:", error.message);
     return [];
   }
 

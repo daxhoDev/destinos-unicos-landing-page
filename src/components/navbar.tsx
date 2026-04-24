@@ -33,47 +33,64 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-screen z-10 transition-colors duration-300 py-2 px-8 flex items-center justify-between ${
-        isTransparent ? "bg-transparent" : "bg-white shadow-md"
+      className={`fixed top-0 left-0 w-screen z-50 transition-all duration-500 py-3 px-6 md:px-10 flex items-center justify-between ${
+        isTransparent ? "bg-transparent" : "glass shadow-lg shadow-brand-blue/5"
       }`}
     >
-      {pathname === "/" ? (
-        <button
-          className={`block md:hidden bg-none border-none text-3xl cursor-pointer focus:outline-none ${
+      {/* Logo / Brand */}
+      <Link href="/" className="flex items-center gap-2 no-underline group">
+        <span className="text-2xl group-hover:animate-wiggle transition-transform">
+          🎁
+        </span>
+        <span
+          className={`font-heading text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
             isTransparent && pathname === "/"
-              ? "text-white hover:text-pink-200 active:text-pink-200"
-              : "text-blue-500 hover:text-pink-400 active:text-pink-400"
+              ? "text-white"
+              : "text-brand-blue-dark"
+          }`}
+        >
+          Destinos Únicos
+        </span>
+      </Link>
+
+      {/* Mobile Hamburger */}
+      {pathname === "/" && (
+        <button
+          className={`block lg:hidden bg-none border-none text-2xl cursor-pointer focus:outline-none transition-colors duration-200 ${
+            isTransparent
+              ? "text-white hover:text-brand-pink-light"
+              : "text-brand-blue hover:text-brand-pink"
           }`}
           aria-label="Abrir menú"
           onClick={() => setIsSidebarOpen(true)}
         >
-          &#9776;
-        </button>
-      ) : (
-        <Link
-          href="/"
-          className="block md:hidden cursor-pointer focus:outline-none text-blue-500 hover:text-pink-400 active:text-pink-400"
-        >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 6L9 12L15 18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
-        </Link>
+        </button>
       )}
-      <ul className="hidden md:flex justify-center gap-8 list-none p-0 m-0">
+
+      {/* Desktop Links */}
+      <ul className="hidden lg:flex justify-center gap-1 list-none p-0 m-0">
         {pathname === "/" ? (
           navLinks.map((link) => (
             <li key={link.href}>
               <a
-                className={`font-bold no-underline text-lg transition-colors duration-200 ${
+                className={`relative font-semibold no-underline text-[0.95rem] px-4 py-2 rounded-full transition-all duration-300 ${
                   isTransparent
-                    ? "text-white hover:text-pink-200 active:text-pink-200"
-                    : "text-blue-500 hover:text-pink-400 active:text-pink-400"
+                    ? "text-white/90 hover:text-white hover:bg-white/15"
+                    : "text-brand-blue-dark/80 hover:text-brand-blue hover:bg-brand-blue-pale"
                 }`}
                 href={link.href}
               >
@@ -84,34 +101,68 @@ export default function Navbar() {
         ) : (
           <Link
             href="/"
-            className="text-blue-500 font-bold no-underline text-lg transition-colors duration-200 hover:text-pink-400"
+            className="text-brand-blue font-semibold no-underline text-[0.95rem] px-4 py-2 rounded-full transition-all duration-300 hover:text-brand-pink hover:bg-brand-pink-pale flex items-center gap-1"
           >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 6L9 12L15 18" />
+            </svg>
             Inicio
           </Link>
         )}
       </ul>
+
+      {/* CTA Button */}
       {pathname === "/" && (
-        <Link href="/catalog">
+        <Link href="/catalog" className="hidden lg:block">
           <Button variant={isTransparent ? "light" : undefined}>
             Ver catálogo
           </Button>
         </Link>
       )}
+
+      {/* Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed top-0 left-0 w-screen h-screen bg-black/40 z-20 flex"
+          className="fixed inset-0 bg-brand-blue-deeper/50 z-50 flex backdrop-blur-sm"
           onClick={handleCloseSidebar}
         >
           <nav
-            className="w-60 max-w-[80vw] bg-white h-screen shadow-lg flex flex-col p-8 gap-8 z-30 animate-slide-in"
+            className="w-72 max-w-[80vw] h-screen shadow-2xl flex flex-col p-0 z-60 animate-slide-in-left bg-white overflow-hidden"
             onClick={(e) => e.stopPropagation()}
             aria-label="Menú lateral"
           >
-            <ul className="flex flex-col gap-6 list-none p-0 m-0">
+            {/* Sidebar header */}
+            <div className="bg-gradient-to-r from-brand-blue to-brand-pink p-6 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🎁</span>
+                <span className="font-heading text-xl font-bold text-white">
+                  Destinos Únicos
+                </span>
+              </div>
+              <button
+                className="text-white/80 hover:text-white text-2xl bg-transparent border-none cursor-pointer transition-colors"
+                onClick={handleCloseSidebar}
+                aria-label="Cerrar menú"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Sidebar links */}
+            <ul className="flex flex-col gap-1 list-none p-6 m-0">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
-                    className="text-blue-500 font-bold no-underline text-xl transition-colors duration-200 hover:text-pink-400"
+                    className="text-brand-blue-dark font-semibold no-underline text-lg transition-all duration-200 hover:text-brand-pink px-4 py-3 rounded-xl hover:bg-brand-pink-pale block"
                     href={link.href}
                     onClick={handleCloseSidebar}
                   >
@@ -120,16 +171,16 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
+
+            {/* Sidebar CTA */}
+            <div className="mt-auto p-6 pt-0">
+              <Link href="/catalog" onClick={handleCloseSidebar}>
+                <Button>Ver catálogo</Button>
+              </Link>
+            </div>
           </nav>
         </div>
       )}
-      <style>{`
-        @keyframes slide-in {
-          from { transform: translateX(-100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        .animate-slide-in { animation: slide-in 0.2s; }
-      `}</style>
     </nav>
   );
 }
