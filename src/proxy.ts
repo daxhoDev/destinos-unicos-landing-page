@@ -16,7 +16,7 @@ export async function proxy(request: NextRequest) {
   const isAdminRoute = requestPath.startsWith("/admin");
 
   if (!user && isAdminRoute)
-    return NextResponse.redirect(new URL("/auth", request.url));
+    return NextResponse.redirect(new URL("/auth/login", request.url));
 
   if (user && isAuthRoute)
     return NextResponse.redirect(new URL("/admin", request.url));
