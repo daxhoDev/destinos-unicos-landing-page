@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.99.1",
     "keen-slider": "^6.8.6",
     "next": "16.1.6",

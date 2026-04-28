@@ -1,5 +1,3 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -15,11 +13,7 @@ export default async function Layout({
 }) {
   return (
     <html lang="es">
-      <body className="bg-white min-h-dvh flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <body className="bg-white min-h-dvh flex flex-col">{children}</body>
     </html>
   );
 }

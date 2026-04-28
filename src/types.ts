@@ -1,11 +1,12 @@
 export type Gift = {
-    id: number,
-    name: string,
-    description: string,
-    category: 'ROMANTIC' | 'SPECIAL_DATE' | 'BIRTHDAY',
-    price: number,
-    imageUrl?: string,
-}
+    id: number;
+    name: string;
+    description: string;
+    category: "ROMANTIC" | "SPECIAL_DATE" | "BIRTHDAY";
+    price: number;
+    imageUrl?: string;
+    is_active: boolean;
+};
 
 export type Review = {
     id: number,
@@ -13,3 +14,11 @@ export type Review = {
     client: string,
     imageUrl?: string,
 }
+
+export type Profile = {
+  id: string;
+  name: string;
+  email: string;
+  created_at: string;
+  role: "USER" | "ADMIN";
+};

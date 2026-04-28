@@ -1,7 +1,10 @@
-import supabase from "@/supabase";
+import { createSupabaseServer } from "@/lib/supabase";
 import { Gift } from "@/types";
+import { unstable_noStore as noStore } from "next/cache";
 
-export const getPopularGifts = async () => {
+export async function getPopularGifts() {
+  noStore();
+  const supabase = await createSupabaseServer();
   const { data, error } = await supabase
     .from("gifts")
     .select("*")

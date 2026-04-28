@@ -1,7 +1,8 @@
-import supabase from "@/supabase";
+import { createSupabaseServer } from "@/lib/supabase";
 import { Gift } from "@/types";
 
-export const getGifts = async () => {
+export async function getGifts() {
+  const supabase = await createSupabaseServer();
   const { data, error } = await supabase
     .from("gifts")
     .select("*")
