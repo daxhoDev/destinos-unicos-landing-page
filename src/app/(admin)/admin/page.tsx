@@ -68,7 +68,7 @@ function DashboardCard({
     >
       <div className="flex items-start gap-4">
         <div
-          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white shrink-0`}
+          className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradient} flex items-center justify-center text-white shrink-0`}
         >
           {icon}
         </div>
@@ -98,7 +98,7 @@ function DashboardCard({
       </div>
 
       {/* Bottom hover indicator */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-blue to-brand-pink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-brand-blue to-brand-pink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
     </Link>
   );
 }
