@@ -7,6 +7,7 @@ import {
   updateProductAction,
   toggleProductAction,
 } from "@/app/(admin)/admin/actions/products";
+import Image from "next/image";
 
 const CATEGORY_OPTIONS: { value: Gift["category"]; label: string }[] = [
   { value: "ROMANTIC", label: "Romántico" },
@@ -22,7 +23,9 @@ export function ProductForm({ gift }: { gift: Gift }) {
   const [price, setPrice] = useState(gift.price.toString());
   const [isActive, setIsActive] = useState(gift.is_active);
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(gift.imageUrl || null);
+  const [imagePreview, setImagePreview] = useState<string | null>(
+    gift.imageUrl || null,
+  );
   const [saving, setSaving] = useState(false);
   const [toggling, setToggling] = useState(false);
   const [message, setMessage] = useState<{
@@ -180,10 +183,12 @@ export function ProductForm({ gift }: { gift: Gift }) {
           </label>
           {imagePreview && (
             <div className="mb-3">
-              <img 
-                src={imagePreview} 
-                alt="Vista previa" 
-                className="w-32 h-32 object-cover rounded-xl border border-gray-200 shadow-sm" 
+              <Image
+                src={imagePreview}
+                alt="Vista previa"
+                width={100}
+                height={100}
+                className="w-32 h-32 object-cover rounded-xl border border-gray-200 shadow-sm"
               />
             </div>
           )}
@@ -236,7 +241,7 @@ export function ProductForm({ gift }: { gift: Gift }) {
               type="number"
               required
               min="0"
-              step="0.01"
+              step="100"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all duration-200"
