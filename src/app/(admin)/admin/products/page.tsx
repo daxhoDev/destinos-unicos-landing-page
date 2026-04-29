@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllGifts } from "@/lib/queries/admin/gifts";
+import { getAllGifts } from "@/lib/queries/admin/getAllGifts";
 import { ProductCard } from "@/components/admin/ProductCard";
 
 export default async function ProductsPage() {

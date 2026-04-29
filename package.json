@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.99.1",
+    "cloudinary": "^2.10.0",
     "keen-slider": "^6.8.6",
     "next": "16.1.6",
     "react": "19.2.3",

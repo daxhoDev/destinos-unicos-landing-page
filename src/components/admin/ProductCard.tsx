@@ -21,7 +21,7 @@ export function ProductCard({ gift }: { gift: Gift }) {
       className="group block bg-white rounded-xl border border-gray-100 hover:border-brand-blue-light hover:shadow-lg hover:shadow-brand-blue/5 transition-all duration-300 overflow-hidden"
     >
       {/* Product image */}
-      <div className="relative w-full aspect-[4/3] bg-gray-100 overflow-hidden">
+      <div className="relative w-full aspect-4/3 bg-gray-100 overflow-hidden">
         {gift.imageUrl ? (
           <Image
             src={gift.imageUrl}
@@ -89,8 +89,7 @@ export function ProductCard({ gift }: { gift: Gift }) {
       </div>
 
       {/* Bottom hover indicator */}
-      <div className="h-0.5 bg-gradient-to-r from-brand-blue to-brand-pink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+      <div className="h-0.5 bg-linear-to-r from-brand-blue to-brand-pink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
     </Link>
   );
 }
-

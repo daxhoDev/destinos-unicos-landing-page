@@ -21,6 +21,8 @@ export function ProductForm({ gift }: { gift: Gift }) {
   const [category, setCategory] = useState<Gift["category"]>(gift.category);
   const [price, setPrice] = useState(gift.price.toString());
   const [isActive, setIsActive] = useState(gift.is_active);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(gift.imageUrl || null);
   const [saving, setSaving] = useState(false);
   const [toggling, setToggling] = useState(false);
   const [message, setMessage] = useState<{
@@ -33,17 +35,24 @@ export function ProductForm({ gift }: { gift: Gift }) {
     setSaving(true);
     setMessage(null);
 
-    const result = await updateProductAction(gift.id, {
-      name,
-      description,
-      category,
-      price: parseFloat(price),
-    });
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("price", price);
+    if (imageFile) {
+      formData.append("image", imageFile);
+    }
+
+    const result = await updateProductAction(gift.id, formData);
 
     setSaving(false);
 
     if (result.success) {
-      setMessage({ type: "success", text: "Producto actualizado correctamente" });
+      setMessage({
+        type: "success",
+        text: "Producto actualizado correctamente",
+      });
       router.refresh();
     } else {
       setMessage({ type: "error", text: result.error });
@@ -109,11 +118,7 @@ export function ProductForm({ gift }: { gift: Gift }) {
               : "bg-emerald-600 text-white hover:bg-emerald-700"
           }`}
         >
-          {toggling
-            ? "Procesando…"
-            : isActive
-              ? "Deshabilitar"
-              : "Habilitar"}
+          {toggling ? "Procesando…" : isActive ? "Deshabilitar" : "Habilitar"}
         </button>
       </div>
 
@@ -168,6 +173,34 @@ export function ProductForm({ gift }: { gift: Gift }) {
           />
         </div>
 
+        {/* Image */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            Imagen del producto
+          </label>
+          {imagePreview && (
+            <div className="mb-3">
+              <img 
+                src={imagePreview} 
+                alt="Vista previa" 
+                className="w-32 h-32 object-cover rounded-xl border border-gray-200 shadow-sm" 
+              />
+            </div>
+          )}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                setImageFile(file);
+                setImagePreview(URL.createObjectURL(file));
+              }
+            }}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-blue/10 file:text-brand-blue hover:file:bg-brand-blue/20 cursor-pointer"
+          />
+        </div>
+
         {/* Category + Price row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -180,9 +213,7 @@ export function ProductForm({ gift }: { gift: Gift }) {
             <select
               id="product-category"
               value={category}
-              onChange={(e) =>
-                setCategory(e.target.value as Gift["category"])
-              }
+              onChange={(e) => setCategory(e.target.value as Gift["category"])}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all duration-200"
             >
               {CATEGORY_OPTIONS.map((opt) => (
@@ -198,7 +229,7 @@ export function ProductForm({ gift }: { gift: Gift }) {
               htmlFor="product-price"
               className="block text-sm font-medium text-gray-700 mb-1.5"
             >
-              Precio (USD)
+              Precio (CUP)
             </label>
             <input
               id="product-price"

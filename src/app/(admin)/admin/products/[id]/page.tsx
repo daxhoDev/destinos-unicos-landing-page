@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getGiftById } from "@/lib/queries/admin/gifts";
+import { getGiftById } from "@/lib/queries/admin/getGiftById";
 import { ProductForm } from "@/components/admin/ProductForm";
 
 export default async function ProductEditPage({
@@ -19,10 +19,7 @@ export default async function ProductEditPage({
     <div className="space-y-6 animate-fade-in-up">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-500">
-        <Link
-          href="/admin"
-          className="hover:text-brand-blue transition-colors"
-        >
+        <Link href="/admin" className="hover:text-brand-blue transition-colors">
           Dashboard
         </Link>
         <svg
