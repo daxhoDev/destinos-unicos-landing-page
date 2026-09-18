@@ -1,4 +1,4 @@
-import background from "@/assets/gifts-bg.png";
+import background from "@/assets/gifts-bg.webp";
 import Link from "next/link";
 import Button from "@/components/button";
 
